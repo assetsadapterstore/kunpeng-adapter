@@ -29,3 +29,24 @@ func TestAddressDecoder_AddressDecode(t *testing.T) {
 	p2shHash, _ := addrdec.AddressDecode(p2shAddr, KPG_mainnetAddressP2SH)
 	t.Logf("p2shHash: %s", hex.EncodeToString(p2shHash))
 }
+
+func TestAddressDecoderV2_AddressVerify(t *testing.T) {
+	addrdec := tw.GetAddressDecoderV2()
+	expect := true
+	p2pkhAddress := "KDn2zSFQehXrK9vnU56PvZp7cHif9p9wTo"
+	p2shAddress := "PZkfhQs1RUuPW7Rngrk3TM87earb9e2qxx"
+
+
+	valid := addrdec.AddressVerify(p2pkhAddress)
+
+	if valid != expect {
+		t.Error("Failed to verify P2PKH valid address")
+	}
+
+
+	valid = addrdec.AddressVerify(p2shAddress)
+
+	if valid != expect {
+		t.Error("Failed to verify P2SH valid address")
+	}
+}
