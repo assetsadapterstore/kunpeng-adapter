@@ -126,17 +126,21 @@ func TestTransfer_KPG(t *testing.T) {
 		"KHMyCcVigqiVuYa4r1Qkm2e5sR3kCXvzuw",
 		"KCbW2aBmLmeqN4Aj1v7zuHffKtbBgMvTnh",
 		"KL4psSu1727pribMx4q6i6y6CX21CDFhCi",
+
+		//"KNbe8jVjripJ3cT4Dr6zMfQfwMRMLUoQSA",
+		//"KSce8umEfJZLkpU4FxXiqQ794JjxMTQ7WA",
 	}
 
 	tm := testInitWalletManager()
 	walletID := "WC8JhWE2UG4TTgzj1LdoVUCLhhrQ4XANqz"
 	accountID := "HQmpz49FJw2uPPX5QYzQno8XvRWYF8g1JW67JTkYKGqw"
+	//accountID := "9fj4QzdhJKj8YBxuFnZUG68MB8Xr4qaRcuYYrJ4zqxAf"
 
 	testGetAssetsAccountBalance(tm, walletID, accountID)
 
 	for _, to := range addrs {
 
-		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "1.2345", "", nil)
+		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "3.65", "", nil)
 		if err != nil {
 			return
 		}
